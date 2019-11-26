@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "rajasekkar.pem"
+  default = "rajasekkar
 }
 
 variable "pvt_key" {
@@ -13,3 +13,5 @@ variable "us-east-zones" {
 variable "sg-id" {
   default = "sg-00db65a45953512e7"
 }
+
+
