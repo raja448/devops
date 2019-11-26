@@ -15,8 +15,7 @@ provider "aws" {
 resource "aws_instance" "backend" {
   ami                    = "ami-04763b3055de4860b"
   instance_type          = "t2.micro"
-  access_key = "AKIAYNI24TBDDGNH3R6K"
-  secret_key = "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"
+  
 
 
 }
