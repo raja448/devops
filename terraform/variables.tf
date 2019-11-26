@@ -1,9 +1,9 @@
 variable "key_name" {
-  default = "sri-aws"
+  default = "raj-aws"
 }
 
 variable "pvt_key" {
-  default = "/home/srikanth.pem"
+  default = "/home/rajasekkar.pem"
 }
 
 variable "us-east-zones" {
@@ -11,5 +11,5 @@ variable "us-east-zones" {
 }
 
 variable "sg-id" {
-  default = "sg-0d71af2c2ffa77231"
+  default = "sg-00db65a45953512e7"
 }
