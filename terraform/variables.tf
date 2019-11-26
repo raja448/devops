@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "raj-aws"
+  default = "rajasekkar.pem"
 }
 
 variable "pvt_key" {
