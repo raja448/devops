@@ -1,0 +1,15 @@
+10.128.0.16
+10.128.0.17
+10.128.0.18
+
+
+
+[web]
+10.128.0.17
+10.128.0.18
+
+
+
+[web:vars]
+ansible_ssh_user=root
+ansible_ssh_pass=Pass@word1

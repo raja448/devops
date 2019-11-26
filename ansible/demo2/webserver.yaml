@@ -1,0 +1,22 @@
+---
+
+
+- hosts: web
+  sudo: yes
+
+  tasks:
+  - name: Install Apache Packages
+    yum: name=httpd state=present
+    when: ansible_os_family == "RedHat"
+
+  - name: Start Apache Service
+    service: name=httpd state=started enabled=True
+    when: ansible_os_family == "RedHat"
+
+  - name: Install Apache Packages on Ubuntu
+    apt: name=apache2 state=present
+    when: ansible_os_family == "Debian"
+
+  - name: Start Apache Service
+    service: name=apache2 state=started enabled=True
+    when: ansible_os_family == "Debian"
