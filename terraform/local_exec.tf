@@ -12,6 +12,7 @@ provider "aws" {
   }
 
 resource "aws_vpc" "example" {
+   vpc_id = "vpc-12345"
   cidr_block = "10.0.0.0/16"
 }
 
