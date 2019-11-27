@@ -15,14 +15,12 @@ provider "aws" {
 resource "aws_instance" "backend" {
   ami                    = "ami-04763b3055de4860b"
   instance_type          = "t2.micro"
-  key_name               = "${var.key_name}"
   }
 
 resource "null_resource" "remote-exec-1" {
     connection {
     user        = "ubuntu"
     type        = "ssh"
-    private_key = "${file(var.pvt_key)}"
     host        = "${aws_instance.backend.public_ip}"
   }
 
