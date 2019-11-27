@@ -11,11 +11,6 @@ provider "aws" {
   region     = "us-east-1"
   }
 
-resource "aws_vpc" "example" {
-   vpc_id = "'vpc-7ef73604"
-  cidr_block = "10.0.0.0/16"
-}
-
 
 resource "aws_instance" "backend" {
   ami                    = "ami-04763b3055de4860b"
