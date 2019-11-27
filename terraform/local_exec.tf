@@ -9,8 +9,10 @@ provider "aws" {
   access_key = "AKIAYNI24TBDDGNH3R6K"
   secret_key = "U9UVSbej+tP4nc8FKq1oCvUTnFQwksIBcb8bPLml"
   region     = "us-east-1"
-  
-  
+  }
+
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16"
 }
 
 
