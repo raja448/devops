@@ -9,5 +9,5 @@
   gather_facts: no
   vars_prompt:
   - name: "sshKey"
-    prompt: "/home/devvmlogin/.ssh/id_rsa.pub"
-    default: "/home/st/.ssh/github-personal"
+    prompt: ""
+    default: ""
