@@ -1,7 +1,7 @@
 node {
     
 stage('Git CheckOut') {    
-git url: 'https://github.com/amitvashisttech/devops-mindtree-20191115.git'
+git url: 'https://github.com/raja448/devops.git'
 }
 
 
@@ -38,8 +38,8 @@ sh label: 'Jenkins', script: "echo '<h1> TASK BUILD ID: ${env.BUILD_DISPLAY_NAME
 stage('Deploy to Prod.') {
 def project_path_1 = "../../../terraform"
 dir(project_path_1) {    
-sh label: 'terraform', script: '/bin/terraform  init'
-sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
+sh label: 'terraform', script: 'terraform  init'
+sh label: 'terraform', script: 'terraform  apply -input=false -auto-approve'
 }   
 }   
     
