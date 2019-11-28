@@ -3,11 +3,11 @@
 # Ubuntu 16.04 require this
 ##############################################################################
 - hosts: all
-  remote_user: ubuntu
+  remote_user: root
   become: yes
   become_method: sudo
   gather_facts: no
   vars_prompt:
   - name: "sshKey"
-    prompt: "/home/ubuntu/.ssh/id_rsa"
+    prompt: "/home/devvmlogin/.ssh/id_rsa.pub"
     default: "/home/st/.ssh/github-personal"
