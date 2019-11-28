@@ -3,7 +3,7 @@ variable "us-east-zones" {
 }
 
 variable "pvt_key" {
-  default = "/root/.ssh/amit-personal-aws.pem"
+  default = "/home/rajasekkar.pem"
 }
 
 
