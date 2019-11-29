@@ -3,7 +3,7 @@ variable "us-east-zones" {
 }
 
 variable "pvt_key" {
-  default = "/home/rajasekkar.pem"
+  default = "/home/raja.pem"
 }
 
 
