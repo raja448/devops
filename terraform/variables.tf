@@ -6,4 +6,9 @@ variable "pvt_key" {
   default = "/home/raja.pem"
 }
 
+variable "sg_id" {
+  default = "sg-0f0b43df7fec99d5c"
+  }
+
+
 
