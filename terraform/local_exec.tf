@@ -16,6 +16,7 @@ provider "aws" {
 resource "aws_instance" "backend" {
   ami                    = "ami-04763b3055de4860b"
   instance_type          = "t2.micro"
+  vpc_security_group_ids      = ["${var.sg_id}"]
   }
 
 resource "null_resource" "remote-exec-1" {
