@@ -6,8 +6,8 @@ terraform {
 }
 
 provider "aws" {
-    regions = "us-east-1"
-    shared_crredentials_file= "home/ubuntu/credentials"
+    region = "us-east-1"
+    shared_crredentials_file = "home/ubuntu/credentials"
     profile = "terraform"
 
   }
