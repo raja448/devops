@@ -45,4 +45,4 @@ provisioner "local-exec" {
     EOT
 }
 }
-}
+
