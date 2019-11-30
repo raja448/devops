@@ -21,7 +21,7 @@ resource "aws_instance" "backend" {
 
 resource "null_resource" "remote-exec-1" {
     connection {
-    user        = "ubuntu"
+    user        = "root"
     type        = "ssh"
     host        = "${aws_instance.backend.public_ip}"
   }
