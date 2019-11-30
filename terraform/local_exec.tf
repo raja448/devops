@@ -1,9 +1,5 @@
-terraform {
-  backend "local" {
-    path = "/tmp/terraform/workspace/terraform.tfstate"
-  }
 
-}
+{
 
 provider "aws" {
     region = "us-east-1"
@@ -44,5 +40,6 @@ provisioner "local-exec" {
         echo "${aws_instance.backend.public_ip}" | tee -a jenkins-ci.ini;
         ansible-playbook -e  sshKey=${var.pvt_key} -i jenkins-ci.ini ./ansible/setup-backend.yaml -u ubuntu -v
     EOT
+}
 }
 }
