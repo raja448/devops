@@ -1,5 +1,5 @@
 variable "key_name" {
-  default = "sekhar"
+  default = "raja"
 }
 
 variable "pvt_key" {
