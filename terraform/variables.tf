@@ -3,7 +3,7 @@ variable "key_name" {
 }
 
 variable "pvt_key" {
-  default = "/var/lib/jenkins/hyd.pem"
+  default = "/home/hyd.pem"
 }
 
 variable "us-east-zones" {
