@@ -1,9 +1,9 @@
 variable "key_name" {
-  default = "raja"
+  default = "hyd"
 }
 
 variable "pvt_key" {
-  default = "/home/raja.pem"
+  default = "/home/hyd.pem"
 }
 
 variable "us-east-zones" {
