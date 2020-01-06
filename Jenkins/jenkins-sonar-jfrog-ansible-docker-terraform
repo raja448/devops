@@ -1,0 +1,37 @@
+node {
+    
+stage('Git CheckOut') {    
+git url: 'https://github.com/raja448/simple-java-maven-app.git'
+}
+stage('Maven Package') {
+sh label: 'Testing', script: 'mvn package'
+}
+
+stage('Jfrog Artifacory'){
+    script{
+        def server = Artifactory.server 'Jfrog'
+        def uploadSpec = """{
+             "files": [
+            {
+                 "pattern": "**/*.jar",
+                "target": "new"
+            }
+        ]
+        }"""
+        server.upload(uploadSpec)
+    }
+
+}
+
+ stage('sonar analasys'){
+                withSonarQubeEnv('sonar'){
+                    sh 'mvn sonar:sonar'
+            }
+        }
+        stage('Archive Package') {
+archive 'target/*.jar'
+}
+stage('Deploy Code info Docker Env.') {
+sh label: 'master', script: 'docker-compose up -d --build'
+}
+}
