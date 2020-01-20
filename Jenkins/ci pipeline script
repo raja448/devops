@@ -1,0 +1,50 @@
+pipeline{
+    agent none
+    stages{
+        stage('checkout'){
+            agent {label 'test'}   
+            steps{
+git credentialsId: '67b3ddbc-a9b2-4dcb-bdf3-d4704fb445a4', url: 'https://github.com/dboss112/webcicd.git'            }
+        }
+        stage('build'){
+            agent {label 'test'}
+            steps{
+                sh 'mvn package'
+            }
+        }
+        stage('upload'){
+            agent {label 'test'}
+            steps{
+                script{
+                    def server= Artifactory.server 'artifact'
+                    def uploadSpec= """{
+                        "files": [{
+                        "pattern": "target/reddy.war",
+                        "target": "web"}]
+                    }"""
+                    server.upload (uploadSpec)
+                      
+                    }
+            }
+        }
+        stage('sonar analasys'){
+            agent { label 'test'}
+            steps{
+                withSonarQubeEnv('sonar'){
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+        stage('build image')
+           { agent { label 'test'}
+            steps{
+               script{
+                docker.withRegistry('https://registry.hub.docker.com','dockerhub'){
+                 myImage=docker.build("raja448/samplecicd")
+                 myImage.push()
+               }
+           }
+        }
+    }
+}
+}
