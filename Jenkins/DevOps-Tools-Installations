@@ -1,0 +1,65 @@
+
+===============Installations==========
+
+
+java========
+
+sudo apt-get update
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+================
+
+mvn===========
+
+sudo apt install maven
+===============
+jekins==============
+
+wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+sudo apt-get update
+sudo apt-get install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+http://fzjmi43119dns.eastus2.cloudapp.azure.com:8080
+
+=====================
+docker=====
+
+ sudo apt-get install docker.io
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+===========================
+jfrog================
+
+docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+==========================================
+Sonarqube======
+sudo docker pull sonarqube
+sudo docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube
+=====================================================================================
+
+==========================
+ansible ==================
+
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+===================================
+Terraform=======================
+
+sudo apt-get update
+sudo apt-get install wget unzip
+wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
+sudo unzip ./terraform_0.11.13_linux_amd64.zip -d /usr/local/bin/
+terraform -v
+=======================================================================
+docker-compose====
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
